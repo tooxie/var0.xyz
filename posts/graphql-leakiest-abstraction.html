@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GraphQL: The leakiest of abstractions — var0.xyz</title>
+  <meta name="description" content="Every abstraction leaks. GraphQL is the only one I know that leaks in both directions: out to the frontend and back into the backend.">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="/">var0.xyz</a>
+    <!--
+    <nav>
+      <a href="/">home</a>
+    </nav>
+    -->
+  </header>
+
+  <main>
+    <article>
+      <h1>GraphQL: The leakiest of abstractions</h1>
+      <time class="published" datetime="2026-07-12">2026-07-12</time>
+
+      <p>I fell for it. I too believed GraphQL was the future (the thing that would finally free frontend teams from the tyranny of the backlog.) I jumped on board and I loved it. Nothing to be embarrased of.</p>
+
+      <p>I've since changed my mind, though, and not gently. "Every abstraction leaks." That's Joel Spolsky's old law, and it holds. But GraphQL is the only abstraction I can think of that leaks in <em>both</em> directions at once. To understand why that matters, you have to start with what it promised.</p>
+
+      <h2>The promise</h2>
+
+      <p>The core pitch of GraphQL is a single sentence:</p>
+
+      <blockquote>Clients can ask for exactly the data they need, in a single request, without the server defining fixed response shapes ahead of time.</blockquote>
+
+      <p>Everything else flows from that. With REST, you hit <code>GET /users/123</code> and the server decides the shape of the response. You get the id, the name, the email, the avatar, the preferences, the whole envelope, even if all you wanted was the name. With GraphQL, the client writes:</p>
+
+      <pre><code>query {
+  user(id: 123) {
+    name
+  }
+}</code></pre>
+
+      <p>The client defines the shape. No overfetching, no underfetching, one endpoint instead of a sprawl of them, and deeply composable queries that walk relationships in a single round trip:</p>
+
+      <pre><code>query {
+  user(id: 123) {
+    name
+    posts {
+      title
+      comments {
+        author { name }
+      }
+    }
+  }
+}</code></pre>
+
+      <p>Add a strongly typed, introspectable schema (to be fair, one of GraphQL's best features) and the story is compelling. But the real promise was never really technical. It was organizational.</p>
+
+      <p>We were coming from an industry where a distributed system was usually built by a single team with different capabilities inside it. On paper, one team. In practice, two: frontend and backend, talking about completely different things, and a dependency that ran mostly one way. The frontend depended on the backend. Need a new endpoint or a new filter? Open a ticket, negotiate with the backend, wait for it to ship, <em>then</em> start your own work. Delay and friction baked into the process.</p>
+
+      <p>GraphQL stepped into that context and said: you don't need to wait anymore. Query whatever data you need, seemingly straight from the database. Just implement this layer in between. No more dependency. No more REST. <em>Frontend teams evolve independently from backend teams.</em> That was the dream!</p>
+
+      <h2>Why it leaks both ways</h2>
+
+      <p>Software Engineering is the art of managing complexity, and dependencies are just one more variable of the equation. Complexity doesn't disappear; you just decide when and how to pay for it. GraphQL didn't remove the frontend-to-backend dependency, it <em>duplex'ed</em> it.</p>
+
+      <p>A normal leaky abstraction leaks <em>outward</em>. Implementation details escape to the consumer: you need to know how the API works internally to use it, or an error surfaces in terminology that only makes sense to whoever wrote it. Annoying, but familiar. One direction.</p>
+
+      <p>GraphQL leaks in both.</p>
+
+      <p><strong>Backend, inward.</strong> You set up a database. The frontend starts querying it directly through the graph. One day the database is under unusually-heavy load. What happened? You don't know, you didn't write the query that started the fire. You're responsible for the database's health but not for the code that endangers it. You own the incident without owning its cause.</p>
+
+      <p><strong>Frontend, outward.</strong> You used to get a clean endpoint: known parameters, known return shape, predictable behavior. Now you can query anything. and when a query is mysteriously slow, you have to go read the resolvers to find out why. You didn't write them, but now you must understand them. The implementation has leaked straight out to you.</p>
+
+      <p>That's the trap. GraphQL sold "you don't need to understand the other side," but delivered <em>"now both sides need to understand each other, at the worst possible moment."</em> The abstraction leaks out to the frontend and back into the backend simultaneously.</p>
+
+      <h2>The hidden tradeoff</h2>
+
+      <p>None of this shows up on the brochure, but it's all still there:</p>
+
+      <ul>
+        <li>Complexity leaves endpoint design and reappears in the execution engine.</li>
+        <li>Explicit server contracts become dynamic, arbitrary client queries.</li>
+        <li>Caching gets harder. Observability gets harder.</li>
+        <li>Query cost becomes not only unpredictable, but a genuine attack surface.</li>
+        <li>Resolver waterfalls and N+1 problems become the default failure mode.</li>
+        <li>Schema governance and federation become their own operational disciplines.</li>
+      </ul>
+
+      <p>Almost everything GraphQL offers is achievable in REST: sparse fieldsets, aggregation endpoints, batch endpoints, typed contracts via OpenAPI, embedded resources. GraphQL's honest argument was never "REST can't." It was "REST gets messy at scale for complex, client-driven UIs." Fair. But the price of tidiness turned out to be a two-way leak.</p>
+
+      <h2>The correct approach</h2>
+
+      <p>So what's right? Well, it depends. There are only two ways to kill a dependency, either to stop invoking it altogether or to merge the two parties. Microservices make the latter feasible: once a backend is small enough that querying it is close to trivial, a group of frontend developers can own both the service and the database. We merged frontend and backend, the dependency is gone, and for real this time. If genuinely complex logic needs to live elsewhere, that team is just another service you call. But the database in front of you is <em>yours</em> to fix.</p>
+
+      <p>And the other realization: GraphQL failed to deliver on its promise because the answer was there all along. <strong>REST was the correct abstraction.</strong> It lets the backend publish a clear contract; as a consumer you know exactly what to expect. If you need more, <em>they</em> implement it. You don't go around querying their database and messing with their internals, which is precisely the boundary GraphQL erases.</p>
+
+      <p>You might be thinking there are still cases where GraphQL is the only option — aggregating across many services, mobile apps on bad networks, big frontend organizations. But none of these actually <em>require</em> it. Everything GraphQL provides can be built with REST. So the question was never capability. It was the boundary.</p>
+
+      <p>And that's really the point. The leaky abstraction only hurts when the leak crosses a team boundary — when the backend owns a database it can't protect from the frontend's queries, and the frontend owns an error it can't debug without reading someone else's resolvers. So if you like GraphQL, use it! But own both sides: the same team owns the schema, the resolvers, the database, and the client that queries them. When one team owns the whole thing, there's no boundary for the abstraction to leak across, and this entire criticism becomes moot.</p>
+
+      <p>GraphQL's problem was never the technology. It was selling it as a way to <em>remove</em> a dependency between two teams, when all it did was move that dependency somewhere harder to see.</p>
+
+      <hr>
+
+      <p>I made a video version of this argument, if you'd rather watch it: <a href="https://www.youtube.com/watch?v=qBks_G_Hd88">GraphQL: The leakiest of abstractions</a>.</p>
+
+      <p>Thanks for reading.</p>
+    </article>
+  </main>
+
+  <footer class="site">
+    <a href="/">← back</a>
+  </footer>
+</body>
+</html>
