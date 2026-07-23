@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>var0.xyz</title>
+    <link>https://var0.xyz/</link>
+    <description>Var Zero's blog: a philosophical approach to tech.</description>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 Jul 2026 21:56:55 +0200</lastBuildDate>
+    <atom:link href="https://var0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://var0.xyz/assets/android-chrome-512x512.png</url>
+      <title>var0.xyz</title>
+      <link>https://var0.xyz/</link>
+    </image>
+
+    <item>
+      <title>Perfection is not over-engineering</title>
+      <link>https://var0.xyz/posts/perfection-is-not-over-engineering.html</link>
+      <guid isPermaLink="true">https://var0.xyz/posts/perfection-is-not-over-engineering.html</guid>
+      <pubDate>Sun, 19 Jul 2026 21:56:55 +0200</pubDate>
+      <description>The industry conflates perfection with over-engineering. They&apos;re not the same. Over-engineering is solving the wrong problem; a perfect solution exists once the requirements are clear.</description>
+    </item>
+
+    <item>
+      <title>GraphQL: The leakiest of abstractions</title>
+      <link>https://var0.xyz/posts/graphql-leakiest-abstraction.html</link>
+      <guid isPermaLink="true">https://var0.xyz/posts/graphql-leakiest-abstraction.html</guid>
+      <pubDate>Sun, 12 Jul 2026 23:25:01 +0200</pubDate>
+      <description>Every abstraction leaks. GraphQL is the only one I know that leaks in both directions: out to the frontend and back into the backend.</description>
+    </item>
+  </channel>
+</rss>
