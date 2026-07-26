@@ -5,13 +5,21 @@
     <link>https://var0.xyz/</link>
     <description>Var Zero's blog: a philosophical approach to tech.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 21:56:55 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jul 2026 18:33:00 +0200</lastBuildDate>
     <atom:link href="https://var0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://var0.xyz/assets/android-chrome-512x512.png</url>
       <title>var0.xyz</title>
       <link>https://var0.xyz/</link>
     </image>
+
+    <item>
+      <title>What even are microservices?</title>
+      <link>https://var0.xyz/posts/what-even-are-microservices.html</link>
+      <guid isPermaLink="true">https://var0.xyz/posts/what-even-are-microservices.html</guid>
+      <pubDate>Sun, 26 Jul 2026 18:33:00 +0200</pubDate>
+      <description>Everyone recognizes a microservice but nobody can define one. That&apos;s because microservices don&apos;t solve a technical problem, they solve an organizational one.</description>
+    </item>
 
     <item>
       <title>Perfection is not over-engineering</title>
