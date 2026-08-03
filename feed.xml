@@ -5,13 +5,21 @@
     <link>https://var0.xyz/</link>
     <description>Var Zero's blog: a philosophical approach to tech.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Jul 2026 18:33:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 03:26:00 +0200</lastBuildDate>
     <atom:link href="https://var0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://var0.xyz/assets/android-chrome-512x512.png</url>
       <title>var0.xyz</title>
       <link>https://var0.xyz/</link>
     </image>
+
+    <item>
+      <title>Retries don't fix eventual consistency</title>
+      <link>https://var0.xyz/posts/retries-dont-fix-eventual-consistency.html</link>
+      <guid isPermaLink="true">https://var0.xyz/posts/retries-dont-fix-eventual-consistency.html</guid>
+      <pubDate>Sun, 02 Aug 2026 23:52:41 +0200</pubDate>
+      <description>Retries are great for transient failures, but they can&apos;t solve eventual consistency. Treating one problem as the other often adds unnecessary complexity to distributed systems.</description>
+    </item>
 
     <item>
       <title>What even are microservices?</title>

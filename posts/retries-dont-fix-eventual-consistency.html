@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retries don't fix eventual consistency — var0.xyz</title>
+  <meta name="description" content="Retries are great for transient failures, but they can't solve eventual consistency. Treating one problem as the other often adds unnecessary complexity to distributed systems.">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/favicon-32x32.png" sizes="32x32" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <link rel="alternate" type="application/rss+xml" title="var0.xyz" href="/feed.xml" />
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="/">var0.xyz</a>
+    <!--
+    <nav>
+      <a href="/">home</a>
+    </nav>
+    -->
+  </header>
+
+  <main>
+    <article>
+      <h1>Retries don't fix eventual consistency</h1>
+      <time class="published" datetime="2026-08-02">2026-08-02</time>
+
+      <p>Retries are one of those patterns that feel so obviously correct that we rarely stop to question them. Something failed? Try again. If it still fails, wait a little longer and try again. If that doesn't work either... keep trying.</p>
+
+      <p>Sometimes that's exactly the right thing to do. But sometimes we're retrying where there isn't actually a failure.</p>
+
+      <h2>When retries become a design pattern</h2>
+
+      <p>I was once discussing a proposal for handling messages in a distributed system. Let's imagine that one service emitted a "user created" event, another emitted a "subscription created" event, and a third service needed both before it could process the payment for such subscription.</p>
+
+      <p>The proposed solution was straightforward. If the subscription event arrived before the user existed locally, treat it as an error. Move the message into a dead-letter queue, have someone inspect it if necessary, and retry it later.</p>
+
+      <p>At first glance it sounds perfectly reasonable. After all, the required data isn't there, but that framing hides an important assumption: that something has failed.</p>
+
+      <h2>The system isn't broken</h2>
+
+      <p>In reality, nothing may have gone wrong at all.</p>
+
+      <p>Distributed systems don't promise that information arrives everywhere simultaneously, or in order. They promise that, eventually, it will. That's the entire idea behind eventual consistency.</p>
+
+      <p>If one event arrives before another, the system isn't unavailable. It isn't in an exceptional state. It's simply behaving according to the guarantees it was designed to provide.</p>
+
+      <p>That's a subtle distinction, but it changes everything.</p>
+
+      <h2>It's not a bug, it's a property</h2>
+
+      <p>Once you recognize eventual consistency as a property instead of an error condition, the architecture starts looking very different.</p>
+
+      <p>Instead of treating missing information as a failure that requires intervention, you realize that this is simply yet another possible state of the system, nothing else.</p>
+
+      <p>Store every incoming piece of data. Each time a new one arrives, check whether all the required pieces are now present. If they are, execute the work. If they aren't, do nothing.</p>
+
+      <p>No retries. No dead-letter queues. No humans manually replaying messages.</p>
+
+      <p>The system's internal state naturally progresses as information becomes available.</p>
+
+      <h2>Complexity disappears</h2>
+
+      <p>One of the most satisfying things about solving the right problem is watching unrelated problems disappear along with it.</p>
+
+      <p>Imagine a service is unavailable for a minute. Messages pile up. Some end up in a dead-letter queue while newer messages continue flowing through the system once it recovers.</p>
+
+      <p>Now you have another problem to solve: replaying those older messages in the correct order. Should they jump ahead of newer events? Should processing pause until they're replayed? What if ordering actually matters?</p>
+
+      <p>These aren't impossible problems, but they're problems you created yourself.</p>
+
+      <p>If every message is simply stored until all prerequisites are satisfied, none of this orchestration exists. Events naturally become eligible for processing as the missing information arrives.</p>
+
+      <h2>Retries not considered harmful</h2>
+
+      <p>This doesn't mean retries are bad.</p>
+
+      <p>A transient network timeout? Retry it. A packet was dropped? Retry it. Distributed systems are full of short-lived failures, and retrying once is often enough to smooth over the inevitable hiccups of real infrastructure.</p>
+
+      <p>But it's worth asking a simple question once retries start multiplying.</p>
+
+      <p>If retrying once doesn't solve the problem, why would retrying five times? What changes between attempt two and attempt six? Is there actually evidence that the dependency will recover, or are we simply hoping it will?</p>
+
+      <h2>Solve the problem you have</h2>
+
+      <p>The bigger lesson isn't really about retries at all, it's about correctly identifying the problem before reaching for a solution. Availability problems deserve one set of tools. Eventual consistency deserves another. Treating one as the other usually leads to extra infrastructure, extra operational burden, and systems that are harder to reason about.</p>
+
+      <p>Sometimes the cleanest solution isn't finding a smarter retry strategy, It's realizing that there was never anything to retry in the first place.</p>
+
+      <hr>
+
+      <p>I made a video version of this discussion if you'd rather watch it: <a href="https://youtu.be/Rk4R5obm8FA">Rethinking retries</a>.</p>
+
+      <p>Thanks for reading.</p>
+    </article>
+  </main>
+
+  <footer class="site">
+    <a href="/">← back</a>
+  </footer>
+</body>
+</html>
