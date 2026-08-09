@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mindful coding: Purpose and intention — var0.xyz</title>
+  <meta name="description" content="Good code doesn't only describe what it does. It communicates why it exists. A look at how intent shapes names, abstractions, comments, and commit messages.">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/favicon-32x32.png" sizes="32x32" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <link rel="alternate" type="application/rss+xml" title="var0.xyz" href="/feed.xml" />
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="/">var0.xyz</a>
+    <!--
+    <nav>
+      <a href="/">home</a>
+    </nav>
+    -->
+  </header>
+
+  <main>
+    <article>
+      <h1>Mindful coding: Purpose and intention</h1>
+      <time class="published" datetime="2026-08-09">2026-08-09</time>
+
+      <p>“Mindful coding” sounds a bit provocative, maybe even a little clickbaity, I know. I don't mean that you should focus on your breathing while you type, or become acutely aware of every movement of your fingers.</p>
+
+      <p>What I mean is simpler: be mindful of <strong>the intent</strong> of the code.</p>
+
+      <p>Programming languages already give us a vocabulary for describing actions. We can iterate over a list, call a function, assign a value, raise an exception. But the interesting question is often not <em>what</em> the code is doing. It's <em>why</em>.</p>
+
+      <p>That distinction is easy to miss because the mechanics are right there in front of us. A <code>for</code> loop tells me that we're iterating. It doesn't tell me why those items need to be visited, or what role that iteration plays in the larger operation. Good code fills in that missing context—not by explaining every line, but by making the purpose of the code apparent.</p>
+
+      <h2>Names are more than labels</h2>
+
+      <p>One of the simplest ways we communicate intent is by naming things.</p>
+
+      <p>A value of <code>5</code> tells me almost nothing. A constant called <code>MAX_RETRIES</code> tells me that the number has a particular role: it represents a limit on how many times an operation should be attempted. The name gives the value a reason for existing.</p>
+
+      <p>This is one reason naming is so difficult. We often joke that the hardest problems in computer science are 2: naming things, cache invalidation, and off-by-one errors. The joke works because naming is genuinely hard, sometimes we haven't figured out what a piece of code <em>is for</em> well enough to give it a good name.</p>
+
+      <p>Recently, I had a discussion with a colleague about extracting some code into a function. We could have done it. The extraction would have made the surrounding code shorter. But then we struggled to come up with a name for the new function.</p>
+
+      <p>That made me stop and ask a different question: <em>why are we extracting this in the first place?</em></p>
+
+      <p>The problem wasn't that we hadn't found the right name, it was that there wasn't a meaningful concept to name. We had simply drawn an arbitrary boundary through the code. We weren't separating one concern from another, encapsulating a coherent piece of logic, or creating something reusable. We were just moving some lines somewhere else.</p>
+
+      <p>The difficulty of naming was exposing a problem with the design.</p>
+
+      <h2>When the name exposes the abstraction</h2>
+
+      <p>This is where naming becomes more interesting than just choosing readable identifiers. A name can tell you that the abstraction itself is wrong.</p>
+
+      <p>Imagine a function whose name effectively has to be something like <code>validateAndStore</code>. Maybe that's perfectly reasonable in some context. But if the function validates input, stores it, and also decides how an HTTP error should be returned, we have a stronger signal that several different concerns have been pushed together.</p>
+
+      <p>The problem isn't that <code>validateAndStore</code> is a bad name. The problem is that the name is accurately describing an abstraction that is doing too much.</p>
+
+      <p>Good abstractions give us meaningful things to name because they correspond to meaningful concepts. When we have to invent a name for an arbitrary slice of implementation, the struggle can be a symptom rather than the disease.</p>
+
+      <p>So when you're stuck on a name, sometimes the answer isn't to search for a better word. Take a step back and ask: <strong>what concept am I actually trying to name?</strong> And if there isn't one, perhaps there shouldn't be a boundary there at all.</p>
+
+      <h2>Code tells you what. History tells you why.</h2>
+
+      <p>The same distinction appears outside the code itself.</p>
+
+      <p>Consider a commit message. It's common to write messages such as “Add validation module” or “Introduce retry logic.” These aren't necessarily wrong, but they're often not very useful. The commit already contains the code. If I want to know <em>what</em> changed, I can inspect the diff.</p>
+
+      <p>The more valuable question is <em>why did we make this change?</em></p>
+
+      <p>Maybe we discovered a bug. Maybe users were running into a particular failure. Maybe the old implementation worked under normal circumstances but broke under a condition we hadn't anticipated. Maybe we tried another approach and discovered that it didn't work.</p>
+
+      <p>That information isn't necessarily present in the code. It is part of the history of the code.</p>
+
+      <p>A useful commit message therefore doesn't merely narrate the diff. It preserves the reasoning that led to it. Years later, when someone asks why this apparently strange piece of code exists, the commit history can provide an answer.</p>
+
+      <h2>Comments shouldn't repeat the code</h2>
+
+      <p>Comments have the same problem.</p>
+
+      <p>A comment saying:</p>
+
+      <pre><code>x = 5  # assign 5 to x</code></pre>
+
+      <p>doesn't add anything. The code already tells us that.</p>
+
+      <p>A useful comment explains something the code cannot easily express: why that particular value is necessary, why an apparently unnecessary operation must remain, or why a seemingly obvious optimization should not be attempted.</p>
+
+      <p>For example, if a piece of code looks strange because of a bug we previously encountered, a comment can preserve that context:</p>
+
+      <pre><code># Do not optimize this away. This looks redundant, but removing it
+# reintroduces the race condition described in issue #1234.</code></pre>
+
+      <p>The exact wording doesn't matter. The important thing is that the comment tells the reader something they couldn't simply learn by reading the code.</p>
+
+      <p>There is a limit, though. Sometimes the reason is so complicated that explaining it properly requires more context than the comment can reasonably contain. In that case, the answer isn't necessarily a giant comment explaining the entire system. A reference to the relevant issue, discussion, or piece of documentation may be more useful.</p>
+
+      <h2>Intent is information</h2>
+
+      <p>This is what I mean by mindful coding. It isn't about writing more comments, longer names, or more elaborate abstractions. In fact, sometimes the most intentional thing you can do is <em>not</em> add another abstraction, comment, or layer.</p>
+
+      <p>It's about being conscious of the information your code communicates.</p>
+
+      <p>The code itself is usually good at telling us what happens. The surrounding structure—names, boundaries, comments, and history—can tell us why it happens.</p>
+
+      <p>And that “why” is often the part that future readers actually need. It explains why a value exists, why a function is a coherent concept, why an abstraction has a particular boundary, why a strange-looking piece of code must remain, or why a change was made in the first place.</p>
+
+      <p>When those things are intentional, the code becomes easier to understand without needing more explanation. When they're arbitrary, we often feel it: the name doesn't fit, the abstraction doesn't quite make sense, and the comments have to explain things that should have been obvious from the design.</p>
+
+      <p>So the next time you're writing code and find yourself wondering what to call something, don't immediately reach for a thesaurus. Ask yourself a more fundamental question:</p>
+
+      <p><strong>What is this thing for?</strong></p>
+
+      <p>The answer might give you the name. Or it might tell you that you shouldn't have created the thing in the first place.</p>
+
+      <hr>
+
+      <p>I made a video version of this argument, if you'd rather watch it: <a href="https://www.youtube.com/watch?v=RnhQ4CUqzNY">Mindful coding: Purpose and intention</a>.</p>
+
+      <p>Thanks for reading.</p>
+    </article>
+  </main>
+
+  <footer class="site">
+    <a href="/">← back</a>
+  </footer>
+</body>
+</html>
