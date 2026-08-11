@@ -28,7 +28,7 @@
       <h1>Mindful coding: Purpose and intention</h1>
       <time class="published" datetime="2026-08-09">2026-08-09</time>
 
-      <p>“Mindful coding” sounds a bit provocative, maybe even a little clickbaity, I know. I don't mean that you should focus on your breathing while you type, or become acutely aware of every movement of your fingers.</p>
+      <p>"Mindful coding" sounds a bit provocative, maybe even a little clickbaity, I know. I don't mean that you should focus on your breathing while you type, or become acutely aware of every movement of your fingers.</p>
 
       <p>What I mean is simpler: be mindful of <strong>the intent</strong> of the code.</p>
 
@@ -68,7 +68,7 @@
 
       <p>The same distinction appears outside the code itself.</p>
 
-      <p>Consider a commit message. It's common to write messages such as “Add validation module” or “Introduce retry logic.” These aren't necessarily wrong, but they're often not very useful. The commit already contains the code. If I want to know <em>what</em> changed, I can inspect the diff.</p>
+      <p>Consider a commit message. It's common to write messages such as "Add validation module" or "Introduce retry logic." These aren't necessarily wrong, but they're often not very useful. The commit already contains the code. If I want to know <em>what</em> changed, I can inspect the diff.</p>
 
       <p>The more valuable question is <em>why did we make this change?</em></p>
 
@@ -95,27 +95,23 @@
       <pre><code># Do not optimize this away. This looks redundant, but removing it
 # reintroduces the race condition described in issue #1234.</code></pre>
 
-      <p>The exact wording doesn't matter. The important thing is that the comment tells the reader something they couldn't simply learn by reading the code.</p>
-
-      <p>There is a limit, though. Sometimes the reason is so complicated that explaining it properly requires more context than the comment can reasonably contain. In that case, the answer isn't necessarily a giant comment explaining the entire system. A reference to the relevant issue, discussion, or piece of documentation may be more useful.</p>
+      <p>The exact wording doesn't matter. The important thing is that the comment tells the reader something they couldn't simply learn by reading the code. The answer isn't necessarily a giant comment explaining the entire system. A reference to the relevant issue, discussion, or piece of documentation may be more useful.</p>
 
       <h2>Intent is information</h2>
 
       <p>This is what I mean by mindful coding. It isn't about writing more comments, longer names, or more elaborate abstractions. In fact, sometimes the most intentional thing you can do is <em>not</em> add another abstraction, comment, or layer.</p>
 
-      <p>It's about being conscious of the information your code communicates.</p>
+      <p>It's about being conscious of the information your code communicates. The code itself is usually good at telling us what happens, it's "the support structure" around the logic, such as names, boundaries, comments, and history that can tell us why it happens.</p>
 
-      <p>The code itself is usually good at telling us what happens. The surrounding structure—names, boundaries, comments, and history—can tell us why it happens.</p>
-
-      <p>And that “why” is often the part that future readers actually need. It explains why a value exists, why a function is a coherent concept, why an abstraction has a particular boundary, why a strange-looking piece of code must remain, or why a change was made in the first place.</p>
+      <p>And that "why" is often the part that future readers actually need. It explains why a value exists, why a function is a coherent concept, why an abstraction has a particular boundary, why a strange-looking piece of code must remain, or why a change was made in the first place.</p>
 
       <p>When those things are intentional, the code becomes easier to understand without needing more explanation. When they're arbitrary, we often feel it: the name doesn't fit, the abstraction doesn't quite make sense, and the comments have to explain things that should have been obvious from the design.</p>
 
-      <p>So the next time you're writing code and find yourself wondering what to call something, don't immediately reach for a thesaurus. Ask yourself a more fundamental question:</p>
+      <p>So the next time you're writing code and find yourself wondering what to call something, ask yourself a more fundamental question:</p>
 
-      <p><strong>What is this thing for?</strong></p>
+      <p><strong>Why am I struggling to find a name?</strong></p>
 
-      <p>The answer might give you the name. Or it might tell you that you shouldn't have created the thing in the first place.</p>
+      <p>The answer might reveal that this thing should not exist, that's why there's no name for it.</p>
 
       <hr>
 
