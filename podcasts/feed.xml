@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:podcast="https://podcastindex.org/namespace/1.0">
   <channel>
-    <title>var0.xyz</title>
+    <title>Var Zero</title>
     <link>https://var0.xyz/</link>
-    <description>Var Zero&apos;s blog: a philosophical approach to tech.</description>
+    <description>Var Zero&apos;s ramblings: a philosophical approach to tech.</description>
     <language>en</language>
+    <copyright>Copyright Var Zero</copyright>
     <lastBuildDate>Sun, 09 Aug 2026 21:00:00 +0200</lastBuildDate>
-    <atom:link href="https://var0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://var0.xyz/podcasts/feed.xml" rel="self" type="application/rss+xml"/>
+    <podcast:guid>63c088a9-f6b4-5593-a28a-856022aa3e2e</podcast:guid>
+    <podcast:medium>podcast</podcast:medium>
+    <itunes:author>Var Zero</itunes:author>
+    <itunes:owner>
+      <itunes:name>Var Zero</itunes:name>
+      <itunes:email>webmaster@var0.xyz</itunes:email>
+    </itunes:owner>
+    <itunes:summary>Var Zero&apos;s ramblings: a philosophical approach to tech.</itunes:summary>
+    <itunes:category text="Technology"/>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <itunes:image href="https://var0.xyz/assets/android-chrome-512x512.png"/>
     <image>
       <url>https://var0.xyz/assets/android-chrome-512x512.png</url>
-      <title>var0.xyz</title>
+      <title>Var Zero</title>
       <link>https://var0.xyz/</link>
     </image>
 
@@ -19,6 +35,12 @@
       <guid isPermaLink="true">https://var0.xyz/posts/mindful-coding-purpose-and-intention.html</guid>
       <pubDate>Sun, 09 Aug 2026 21:00:00 +0200</pubDate>
       <description>Good code doesn&apos;t only describe what it does. It communicates why it exists. A look at how intent shapes names, abstractions, comments, and commit messages.</description>
+      <enclosure url="https://var0.xyz/podcasts/intention.vbr.mp3" length="10069416" type="audio/mpeg"/>
+      <podcast:episode>5</podcast:episode>
+      <itunes:episode>5</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:duration>8:15</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
     </item>
 
     <item>
@@ -27,6 +49,12 @@
       <guid isPermaLink="true">https://var0.xyz/posts/retries-dont-fix-eventual-consistency.html</guid>
       <pubDate>Sun, 02 Aug 2026 23:52:41 +0200</pubDate>
       <description>Retries are great for transient failures, but they can&apos;t solve eventual consistency. Treating one problem as the other often adds unnecessary complexity to distributed systems.</description>
+      <enclosure url="https://var0.xyz/podcasts/retries.vbr.mp3" length="9427584" type="audio/mpeg"/>
+      <podcast:episode>4</podcast:episode>
+      <itunes:episode>4</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:duration>7:32</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
     </item>
 
     <item>
@@ -35,6 +63,12 @@
       <guid isPermaLink="true">https://var0.xyz/posts/what-even-are-microservices.html</guid>
       <pubDate>Sun, 26 Jul 2026 18:33:00 +0200</pubDate>
       <description>Everyone recognizes a microservice but nobody can define one. That&apos;s because microservices don&apos;t solve a technical problem, they solve an organizational one.</description>
+      <enclosure url="https://var0.xyz/podcasts/microservices.vbr.mp3" length="7543824" type="audio/mpeg"/>
+      <podcast:episode>3</podcast:episode>
+      <itunes:episode>3</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:duration>6:15</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
     </item>
 
     <item>
@@ -43,6 +77,12 @@
       <guid isPermaLink="true">https://var0.xyz/posts/perfection-is-not-over-engineering.html</guid>
       <pubDate>Sun, 19 Jul 2026 21:56:55 +0200</pubDate>
       <description>The industry conflates perfection with over-engineering. They&apos;re not the same. Over-engineering is solving the wrong problem; a perfect solution exists once the requirements are clear.</description>
+      <enclosure url="https://var0.xyz/podcasts/perfection.192.mp3" length="9275070" type="audio/mpeg"/>
+      <podcast:episode>2</podcast:episode>
+      <itunes:episode>2</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:duration>6:26</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
     </item>
 
     <item>
@@ -51,6 +91,12 @@
       <guid isPermaLink="true">https://var0.xyz/posts/graphql-leakiest-abstraction.html</guid>
       <pubDate>Sun, 12 Jul 2026 23:25:01 +0200</pubDate>
       <description>Every abstraction leaks. GraphQL is the only one I know that leaks in both directions: out to the frontend and back into the backend.</description>
+      <enclosure url="https://var0.xyz/podcasts/graphql.192.mp3" length="9999811" type="audio/mpeg"/>
+      <podcast:episode>1</podcast:episode>
+      <itunes:episode>1</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:duration>6:56</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
     </item>
   </channel>
 </rss>
