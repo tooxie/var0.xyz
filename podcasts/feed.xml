@@ -22,9 +22,9 @@
     <itunes:category text="Technology"/>
     <itunes:explicit>false</itunes:explicit>
     <itunes:type>episodic</itunes:type>
-    <itunes:image href="https://var0.xyz/assets/android-chrome-512x512.png"/>
+    <itunes:image href="https://var0.xyz/assets/cover-3000x3000.png"/>
     <image>
-      <url>https://var0.xyz/assets/android-chrome-512x512.png</url>
+      <url>https://var0.xyz/assets/cover-3000x3000.png</url>
       <title>Var Zero</title>
       <link>https://var0.xyz/</link>
     </image>
