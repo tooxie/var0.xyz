@@ -9,7 +9,7 @@
     <description>Var Zero&apos;s ramblings: a philosophical approach to tech.</description>
     <language>en</language>
     <copyright>Copyright Var Zero</copyright>
-    <lastBuildDate>Sun, 09 Aug 2026 21:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 17:10:12 +0200</lastBuildDate>
     <atom:link href="https://var0.xyz/podcasts/feed.xml" rel="self" type="application/rss+xml"/>
     <podcast:guid>63c088a9-f6b4-5593-a28a-856022aa3e2e</podcast:guid>
     <podcast:medium>podcast</podcast:medium>
@@ -30,6 +30,20 @@
     </image>
 
     <item>
+      <title>Beyond recall and the illusion of competence</title>
+      <link>https://var0.xyz/posts/beyond-recall-and-the-illusion-of-competence.html</link>
+      <guid isPermaLink="true">https://var0.xyz/posts/beyond-recall-and-the-illusion-of-competence.html</guid>
+      <pubDate>Tue, 25 Aug 2026 17:10:12 +0200</pubDate>
+      <description>The important question about AI-assisted programming isn&apos;t who writes the code. It&apos;s who understands the system.</description>
+      <enclosure url="https://var0.xyz/podcasts/beyond-recall.vbr.mp3" length="10734984" type="audio/mpeg"/>
+      <podcast:episode>6</podcast:episode>
+      <itunes:episode>6</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:duration>7:46</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
       <title>Mindful coding: Purpose and intention</title>
       <link>https://var0.xyz/posts/mindful-coding-purpose-and-intention.html</link>
       <guid isPermaLink="true">https://var0.xyz/posts/mindful-coding-purpose-and-intention.html</guid>
@@ -39,7 +53,7 @@
       <podcast:episode>5</podcast:episode>
       <itunes:episode>5</itunes:episode>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:duration>8:15</itunes:duration>
+      <itunes:duration>8:03</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
     </item>
 
@@ -53,7 +67,7 @@
       <podcast:episode>4</podcast:episode>
       <itunes:episode>4</itunes:episode>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:duration>7:32</itunes:duration>
+      <itunes:duration>7:34</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
     </item>
 
@@ -67,7 +81,7 @@
       <podcast:episode>3</podcast:episode>
       <itunes:episode>3</itunes:episode>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:duration>6:15</itunes:duration>
+      <itunes:duration>6:06</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
     </item>
 
@@ -95,7 +109,7 @@
       <podcast:episode>1</podcast:episode>
       <itunes:episode>1</itunes:episode>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:duration>6:56</itunes:duration>
+      <itunes:duration>6:57</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
     </item>
   </channel>
