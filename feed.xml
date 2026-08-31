@@ -5,13 +5,21 @@
     <link>https://var0.xyz/</link>
     <description>Var Zero&apos;s blog: a philosophical approach to tech.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2026 17:10:12 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 21:00:00 +0200</lastBuildDate>
     <atom:link href="https://var0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://var0.xyz/assets/android-chrome-512x512.png</url>
       <title>var0.xyz</title>
       <link>https://var0.xyz/</link>
     </image>
+
+    <item>
+      <title>The CMS trap</title>
+      <link>https://var0.xyz/posts/the-cms-trap.html</link>
+      <guid isPermaLink="true">https://var0.xyz/posts/the-cms-trap.html</guid>
+      <pubDate>Mon, 31 Aug 2026 21:00:00 +0200</pubDate>
+      <description>Abstractions make software easier to work with, until maintaining the abstraction becomes more work than solving the problem it was meant to simplify.</description>
+    </item>
 
     <item>
       <title>Beyond recall and the illusion of competence</title>

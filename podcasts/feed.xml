@@ -9,7 +9,7 @@
     <description>Var Zero&apos;s ramblings: a philosophical approach to tech.</description>
     <language>en</language>
     <copyright>Copyright Var Zero</copyright>
-    <lastBuildDate>Tue, 25 Aug 2026 17:10:12 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 21:00:00 +0200</lastBuildDate>
     <atom:link href="https://var0.xyz/podcasts/feed.xml" rel="self" type="application/rss+xml"/>
     <podcast:guid>63c088a9-f6b4-5593-a28a-856022aa3e2e</podcast:guid>
     <podcast:medium>podcast</podcast:medium>
@@ -28,6 +28,20 @@
       <title>Var Zero</title>
       <link>https://var0.xyz/</link>
     </image>
+
+    <item>
+      <title>The CMS trap</title>
+      <link>https://var0.xyz/posts/the-cms-trap.html</link>
+      <guid isPermaLink="true">https://var0.xyz/posts/the-cms-trap.html</guid>
+      <pubDate>Mon, 31 Aug 2026 21:00:00 +0200</pubDate>
+      <description>Abstractions make software easier to work with, until maintaining the abstraction becomes more work than solving the problem it was meant to simplify.</description>
+      <enclosure url="https://var0.xyz/podcasts/cms.vbr.mp3" length="7683408" type="audio/mpeg"/>
+      <podcast:episode>7</podcast:episode>
+      <itunes:episode>7</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:duration>6:38</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
 
     <item>
       <title>Beyond recall and the illusion of competence</title>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The CMS trap — var0.xyz</title>
+  <meta name="description" content="Abstractions make software easier to work with, until maintaining the abstraction becomes more work than solving the problem it was meant to simplify.">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/favicon-32x32.png" sizes="32x32" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <link rel="alternate" type="application/rss+xml" title="var0.xyz" href="/feed.xml" />
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="/">var0.xyz</a>
+  </header>
+
+  <main>
+    <article>
+      <h1>The CMS trap</h1>
+      <time class="published" datetime="2026-08-31">2026-08-31</time>
+      <p>Abstraction is one of the first ideas we learn in software engineering. We encounter it in object-oriented programming, frameworks, libraries and architectural patterns. It's presented to us from such an early stage of our engineering learning journey that we don't even get the chance to question it.</p>
+      <p>Don't get me wrong, abstraction is good, we should abstract things. But like everything else in software engineering, abstraction has a cost.</p>
+
+      <h2>The price is indirection</h2>
+      <p>Every abstraction introduces another layer between you and the thing you're trying to work with. Most of the time, that's exactly what you want. A web framework handles the details of HTTP so you can focus on your application. An ORM lets you work with data without constantly thinking about the particular database underneath it. A library hides complexity that you don't need to care about.</p>
+      <p>But it will come a point when you need to understand what is actually happening underneath the abstraction. And then you have one more place to look, one more layer to peel away, one more mental model to construct. That's indirection. And usually, it's a perfectly reasonable price to pay, the problem is that we often taken past the point of diminishing returns.</p>
+
+      <h2>When the abstraction becomes the product</h2>
+      <p>Many years ago, I worked for a company whose business was food delivery. The product was fairly straightforward. People visited a website, searched for food, found restaurants and ordered what they wanted. The company was in the business of connecting hungry people with food.</p>
+      <p>Then someone had a brilliant idea of creating specialised websites without involving developers: A pizza website? A website for another category of food? Different websites for different countries? Yes! The sales and business teams could create them whenever they wanted, as easy as sending an e-mail.</p>
+
+      <h2>You may have entered a different business</h2>
+      <p>The original problem was selling food online but by creating a sufficiently powerful abstraction around building websites, the organisation had started solving a completely different problem: It had entered the CMS business.</p>
+      <p>This is "the CMS trap".</p>
+      <p>You begin by abstracting something because you want to make your actual work easier. But eventually the abstraction becomes complex enough that maintaining it becomes work in itself. At some point, the thing that was supposed to lift work off your shoulders starts putting things on your plate.</p>
+
+      <h2>How do you know you've gone too far?</h2>
+      <p>There's no precise formula for this. You won't find a metric that tells you an abstraction has reached exactly the wrong level of complexity. But there is a useful warning sign: Look at where your effort is going.</p>
+      <p>Are you spending your time solving the original problem? Or are you increasingly spending it maintaining the abstraction that was supposed to solve the original problem for you? Are you maintaining the infrastructure more than you're using it? Maintaining the tools more than you're doing the work those tools were supposed to enable?</p>
+
+      <h2>Experience should teach you something</h2>
+      <p>You may be surprised to read this, but I actually think most software engineers should go make this mistake.</p>
+      <p>You should see a good abstraction working. You should experience the satisfaction of removing repetition and hiding complexity behind a clean interface. And then, ideally, you should take that abstraction too far; keep generalising. Keep adding flexibility, making it more powerful, keep trying to account for every possible future use case until the abstraction breaks under its own weight.</p>
+      <p>The thing that was supposed to make everything simpler becomes the most complicated part of the system. Maintaining it requires more effort than the problem it was originally created to solve. I think that's a fantastic learning experience for a new software engineer and an excellent way to develop an instinct for where the line is.</p>
+
+      <h2>But organisations should know better</h2>
+      <p>There is a difference between a junior engineer discovering the limits of abstraction and a company with senior developers, architects and people with decades of collective experience building an enormous abstraction that consumes developer-years of effort. At some point, experience has to be worth something.</p>
+      <p>Senior engineers should have seen these patterns before. They should recognise the warning signs. They should be able to ask whether the abstraction is still serving the business. That's part of what experience is supposed to provide - not the ability to avoid every mistake, but the ability to recognise expensive mistakes before an entire organisation commits to them.</p>
+      <p>Learning by taking an abstraction to the extreme is valuable when you're learning. Doing exactly the same thing at organisational scale, with decades of engineering experience available in the room, is unacceptable.</p>
+
+      <hr>
+
+      <p>This post was inspired by: <a href="https://max.engineer/cms-trap">CMS Trap</a>, an article written by Max Chernyak.</p>
+
+      <p>I made a video version of this discussion if you'd rather watch it: <a href="https://youtu.be/axIt3xFaxFQ">Abusing abstractions: The CMS trap</a>.</p>
+      <p>Thanks for reading.</p>
+    </article>
+  </main>
+
+  <footer class="site">
+    <a href="/">← back</a>
+  </footer>
+</body>
+</html>
