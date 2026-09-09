@@ -9,7 +9,7 @@
     <description>Var Zero&apos;s ramblings: a philosophical approach to tech.</description>
     <language>en</language>
     <copyright>Copyright Var Zero</copyright>
-    <lastBuildDate>Mon, 31 Aug 2026 21:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2026 21:00:00 +0200</lastBuildDate>
     <atom:link href="https://var0.xyz/podcasts/feed.xml" rel="self" type="application/rss+xml"/>
     <podcast:guid>63c088a9-f6b4-5593-a28a-856022aa3e2e</podcast:guid>
     <podcast:medium>podcast</podcast:medium>
@@ -28,6 +28,20 @@
       <title>Var Zero</title>
       <link>https://var0.xyz/</link>
     </image>
+
+    <item>
+      <title>Post-Mortems and Accountability</title>
+      <link>https://var0.xyz/posts/post-mortems-accountability.html</link>
+      <guid isPermaLink="true">https://var0.xyz/posts/post-mortems-accountability.html</guid>
+      <pubDate>Wed, 09 Sep 2026 21:00:00 +0200</pubDate>
+      <description>A post-mortem should explain what happened and how to prevent it from happening again. It is probably the most technical meeting in the development process.</description>
+      <enclosure url="https://var0.xyz/podcasts/post-mortems.vbr.mp3" length="10558320" type="audio/mpeg"/>
+      <podcast:episode>8</podcast:episode>
+      <itunes:episode>8</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:duration>8:13</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
 
     <item>
       <title>The CMS trap</title>

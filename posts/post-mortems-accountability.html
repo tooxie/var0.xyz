@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post-Mortems and Accountability — var0.xyz</title>
+  <meta name="description" content="A post-mortem should explain what happened and how to prevent it from happening again. It is probably the most technical meeting in the development process.">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon-16x16.png" sizes="16x16" />
+  <link rel="shortcut icon" href="/assets/favicon-32x32.png" sizes="32x32" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <link rel="alternate" type="application/rss+xml" title="var0.xyz" href="/feed.xml" />
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="/">var0.xyz</a>
+  </header>
+
+  <main>
+    <article>
+      <h1>Post-Mortems and Accountability</h1>
+      <time class="published" datetime="2026-09-09">2026-09-09</time>
+
+      <p>Post-mortems are one of those things that most software teams have learned to do almost automatically. Something breaks, an outage happens, data is lost, everyone gets together afterwards and tries to figure out what went wrong.</p>
+
+      <p>They're familiar enough that we rarely stop to ask what the meeting is actually for. I think that's a problem because I've seen post-mortems turn into something they really shouldn't be: a place to assign personal responsibility.</p>
+
+      <h2>Who did it?</h2>
+
+      <p>I once had a discussion with a manager who wanted people to "take accountability" during post-mortems. His idea of accountability was that people should say things like "I did this" when talking about the series of events that led to the incident. The person who made the change should identify themselves and own the resulting failure.</p>
+
+      <p>At first it may sound reasonable, after all "owning" your mistakes is something highly praised in the industry. However, the post-mortem is not the place for this. Before discussing why, let's first talk about what this meeting is for.</p>
+
+      <h2>The most technical meeting</h2>
+
+      <p>For me, a post-mortem is one of the most purely technical meetings a team can have: Something happened, let's figure out why and how to prevent it from happening again. We are talking about facts and technical solutions that can lead to changes in code, architecture, monitoring, tooling, deployment procedures or the development process itself.</p>
+
+      <p>Sometimes the answer is that nothing should change. Not every incident deserves a new process or another layer of automation. Occasionally something is sufficiently unusual that the team can reasonably conclude it was a one-off. But that should be a conscious decision, not an excuse to avoid learning from the incident.</p>
+
+      <h2>Leave the people out</h2>
+
+      <p>There's an important difference in how you describe an incident if you do it in the first person vs. the passive voice. "I deleted the database" puts a person at the center of the story. "The production database was deleted" puts the event at the center.</p>
+
+      <p>It isn't about avoiding responsibility, it's about making the incident easier to analyse and making it easier for people to speak out about what happened. Once you remove the person from the narrative, you can start asking better questions. Why was it possible to delete the database? Why did the command have access to production? Why wasn't there a safeguard? Why didn't somebody notice immediately? Was the procedure reasonable given the information available at the time?</p>
+
+      <p>Those questions can actually improve the system, while asking "who did it?" or "why did you do that?" usually doesn't.</p>
+
+      <h2>Accountability still matters</h2>
+
+      <p>This isn't an argument against accountability, in fact I think that it's very important. If someone repeatedly makes reckless decisions, ignores established procedures or demonstrates serious negligence, that needs to be addressed. But the process already establishes ways to do that.</p>
+
+      <p>Accountability belongs in a 1-on-1, in the team, or potentially in a retrospective where the team can examine how people worked together and what they can learn from it.</p>
+
+      <p>To the outside world the team is a unit. Whatever happened inside the team - to the outside world - it happened in the team as a whole. In the post-mortem the team presents what happened, what they learned and what they're going to do about it. The internal question of who needs coaching, feedback or a difficult conversation should stay internal.</p>
+
+      <h2>Most mistakes aren't special</h2>
+
+      <p>There's another reason I'm wary of turning post-mortems into exercises in personal accountability: most software mistakes are remarkably ordinary. Almost anyone who has spent enough time operating production systems has eventually done something stupid like deleting a database, deployed the wrong thing, changed the wrong configuration, or broken production in some embarrassing way. It happens.</p>
+
+      <p>That doesn't mean we should shrug and say "well, mistakes happen" and move on. Quite the opposite. We should investigate them seriously. But the fact that something bad happened doesn't automatically mean that the person who caused it needs to be publicly exposed.</p>
+
+      <h2>The audience matters</h2>
+
+      <p>Post-mortems also tend to involve people outside the team that experienced the incident. An outage rarely affects only one team, and other teams may need to understand what happened and whether anything changes for them. But imagine you're sitting in that meeting as an engineer from another team, do you really need to hear someone say, "I did this, and then she did that even though I warned against it"?</p>
+
+      <p>That's internal team business. It's uncomfortable, it's rarely useful to the audience, and it distracts from the actual technical investigation. The goal isn't to make someone feel responsible. The goal is to make the system better.</p>
+
+      <p>An incident is already expensive. Production went down, users were affected, engineers were interrupted and everyone spent time recovering the system. The least we can do is get something useful out of it. A good post-mortem turns failure into information. It gives the team a better understanding of its systems and, ideally, removes an entire class of future failures.</p>
+
+      <p>There is a time for accountability. There is a time for difficult conversations about individual behaviour. A post-mortem is neither. Keep it technical.</p>
+
+      <hr>
+
+      <p>I made a video version of this discussion if you'd rather watch it: <a href="https://youtu.be/VceT3jsOQVI">Post-Mortems and Accountability</a>.</p>
+
+      <p>Thanks for reading.</p>
+    </article>
+  </main>
+
+  <footer class="site">
+    <a href="/">← back</a>
+  </footer>
+</body>
+</html>
