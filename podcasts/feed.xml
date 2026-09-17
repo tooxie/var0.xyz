@@ -9,7 +9,7 @@
     <description>Var Zero&apos;s ramblings: a philosophical approach to tech.</description>
     <language>en</language>
     <copyright>Copyright Var Zero</copyright>
-    <lastBuildDate>Wed, 09 Sep 2026 21:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 12:00:00 +0200</lastBuildDate>
     <atom:link href="https://var0.xyz/podcasts/feed.xml" rel="self" type="application/rss+xml"/>
     <podcast:guid>63c088a9-f6b4-5593-a28a-856022aa3e2e</podcast:guid>
     <podcast:medium>podcast</podcast:medium>
@@ -28,6 +28,20 @@
       <title>Var Zero</title>
       <link>https://var0.xyz/</link>
     </image>
+
+    <item>
+      <title>Interviews suck, hiring is hard</title>
+      <link>https://var0.xyz/posts/interviews-suck-hiring-is-hard.html</link>
+      <guid isPermaLink="true">https://var0.xyz/posts/interviews-suck-hiring-is-hard.html</guid>
+      <pubDate>Thu, 17 Sep 2026 12:00:00 +0200</pubDate>
+      <description>Technical interviews often measure what is easy to evaluate rather than what the job actually requires. Is there a better way?</description>
+      <enclosure url="https://var0.xyz/podcasts/interviews.vbr.mp3" length="10556304" type="audio/mpeg"/>
+      <podcast:episode>9</podcast:episode>
+      <itunes:episode>9</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:duration>10:15</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
 
     <item>
       <title>Post-Mortems and Accountability</title>

@@ -5,13 +5,21 @@
     <link>https://var0.xyz/</link>
     <description>Var Zero&apos;s blog: a philosophical approach to tech.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Sep 2026 21:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 12:00:00 +0200</lastBuildDate>
     <atom:link href="https://var0.xyz/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://var0.xyz/assets/android-chrome-512x512.png</url>
       <title>var0.xyz</title>
       <link>https://var0.xyz/</link>
     </image>
+
+    <item>
+      <title>Interviews suck, hiring is hard</title>
+      <link>https://var0.xyz/posts/interviews-suck-hiring-is-hard.html</link>
+      <guid isPermaLink="true">https://var0.xyz/posts/interviews-suck-hiring-is-hard.html</guid>
+      <pubDate>Thu, 17 Sep 2026 12:00:00 +0200</pubDate>
+      <description>Technical interviews often measure what is easy to evaluate rather than what the job actually requires. Is there a better way?</description>
+    </item>
 
     <item>
       <title>Post-Mortems and Accountability</title>
