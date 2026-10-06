@@ -9,7 +9,7 @@
     <description>Var Zero&apos;s ramblings: a philosophical approach to tech.</description>
     <language>en</language>
     <copyright>Copyright Var Zero</copyright>
-    <lastBuildDate>Thu, 17 Sep 2026 12:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 00:50:00 +0200</lastBuildDate>
     <atom:link href="https://var0.xyz/podcasts/feed.xml" rel="self" type="application/rss+xml"/>
     <podcast:guid>63c088a9-f6b4-5593-a28a-856022aa3e2e</podcast:guid>
     <podcast:medium>podcast</podcast:medium>
@@ -28,6 +28,20 @@
       <title>Var Zero</title>
       <link>https://var0.xyz/</link>
     </image>
+
+    <item>
+      <title>Engineering excellence is a business term</title>
+      <link>https://var0.xyz/posts/engineering-excellence-is-a-business-term.html</link>
+      <guid isPermaLink="true">https://var0.xyz/posts/engineering-excellence-is-a-business-term.html</guid>
+      <pubDate>Wed, 07 Oct 2026 00:50:00 +0200</pubDate>
+      <description>Engineering excellence is not an absolute standard. Quality depends on context, tradeoffs, and ultimately, the business decision.</description>
+      <enclosure url="https://var0.xyz/podcasts/engineering-excellence.vbr.mp3" length="9249552" type="audio/mpeg"/>
+      <podcast:episode>10</podcast:episode>
+      <itunes:episode>10</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:duration>7:20</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
 
     <item>
       <title>Interviews suck, hiring is hard</title>
