@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Syrinx: A censorship-resistant communications platform — var0.xyz</title>
+    <meta
+      name="description"
+      content="Syrinx is a federated, censorship-resistant communications platform that is easy to run and performs well in modest hardware."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="icon" type="image/png" href="/assets/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/assets/favicon-32x32.png" sizes="32x32" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title="var0.xyz" href="/feed.xml" />
+  </head>
+  <body>
+    <header class="site">
+      <a class="brand" href="/">var0.xyz</a>
+    </header>
+
+    <main>
+      <article>
+        <h1>Syrinx: A censorship-resistant communications platform</h1>
+        <time class="published" datetime="2026-10-20">2026-10-20</time>
+
+        <p>
+          The idea of <a href="https://github.com/var0xyz/syrinx">Syrinx</a> was born many years ago when I started
+          wondering if it would be possible to build a system that couldn't be censored. What if you could come back up
+          as quickly as you can spin up a new server, in the case of a hostile take over? Turns out that by having your
+          data cryptographically signed and distributed among the network members you don't have to worry about backups
+          any more.
+        </p>
+
+        <p>
+          This idea became even more relevant in the last year or so when the latest (and the most consequential) attack
+          on our privacy began spreading through different countries in the form of age verification laws.
+        </p>
+
+        <h2>The State of Online Privacy</h2>
+
+        <p>
+          Online rights have been slowly stripped away, but to be fair they haven't been taken away as much as we have
+          given them up in exchange for convenience. We provide constantly our location, every message we send, every
+          photo we take, every email we write, every song we listen, every article we read, every video we watch. All of
+          our information is constantly harvested, processed, analyzed, and sold. Sometimes they want to sell us stuff,
+          sometimes they want to know our immigration status, sometimes they want to know our political affiliation. We
+          have no control over any of this.
+        </p>
+
+        <p>
+          And now that they have all that information we would be forced to attach an ID card to it, to make sure that
+          you can't escape the panopticon.
+        </p>
+
+        <h2>The 57005 Internet?</h2>
+
+        <p>
+          I'm sure you've heard about the 57005 Internet theory, which states that most of the Internet traffic is just
+          bots talking to each other. Now exacerbated by most content being AI-generated. I don't know if this is true,
+          but I don't care really, because google is not the Internet, instagram is not the Internet, twitter is not the
+          Internet, and reddit is not the Internet.
+        </p>
+
+        <p>
+          The Internet is decentralized by design. The fact that most of the traffic is handled by a handful of
+          corporations is an anomaly, this is not how it was supposed to work.
+        </p>
+
+        <h2>The Proof of Concept</h2>
+
+        <p>
+          Syrinx is an experiment, a PoC. I wanted to see if I was able to come up with a communications platform that:
+        </p>
+
+        <ul>
+          <li>Was private.</li>
+          <li>Could survive a takedown.</li>
+          <li>
+            Was easy to run.
+            <ul>
+              <li>And performed reasonably well in modest hardware.</li>
+            </ul>
+          </li>
+          <li>Could federate with other communities.</li>
+          <li>Gave admins certain tools of moderation.</li>
+        </ul>
+
+        <p>
+          The application stores all data in the devices of its members, the server meanwhile acts as a torrent tracker,
+          i.e. it knows "who has what" but it doesn't know what the content is. So if I want post X it knows who has it,
+          not what it's written there. A client encrypts the content, sends it to the server, which in turn delivers it
+          to the user who requested it. The content gets decrypted, validated, and stored.
+        </p>
+
+        <p>
+          I was hesitant to call Syrinx "P2P" so in the documentation I called it <em>P2P-ish</em>. This is because
+          establishing direct connections between peers across NAT'ted routers is extremely unreliable, so the server
+          acts as a relay in between the peers.
+        </p>
+
+        <p>
+          Since the database is distributed among the peers a hostile take-over of the server does not yield any useful
+          information besides usernames (emails and bios are optional.) This allows the system to become operational
+          again quickly as long as users export their data from the old app and import it into the new system.
+        </p>
+
+        <p>
+          Moderation is important for a community to make sure that communication remains safe, respectful, and overall
+          aligned with the community-established guidelines. This power given to a few people is balanced by publishing
+          every action they take to a cryptographically-signed public ledger that every member can read. That makes them
+          accountable and unable to exercise power in darkness.
+        </p>
+
+        <p>
+          This goes hand-in-hand with the community being invite-only. That instills a sense of responsibility on the
+          members when inviting other people, knowing that their actions reflect on you as well, and bringing in members
+          that could disrupt the peace could have consequences on your own account.
+        </p>
+
+        <p>
+          Just because I don't agree with what you say does not mean that you don't have the right to say it. Members
+          who disagree on how the community is run could easily start their own. That's why it's important that the
+          software is easy to run at home, in whatever piece of hardware you have lying around. This allows for small
+          communities to flourish that can then federate with each other in a sort of mesh.
+        </p>
+
+        <h2>A Message to You, Rudy</h2>
+
+        <p>
+          This is my message to the hacker community out there: We have the means to reclaim the Internet. We don't need
+          to depend on corporations for hosting or compute power, that's not how the Internet was designed. In fact, the
+          hyper-centralized Internet that we have today is an anomaly.
+        </p>
+
+        <p>
+          As I always say, <em>Software Engineering is the art of managing trade-offs</em>, and Syrinx is no exception.
+          There are big trade-offs when it comes to decentralized services. Yet, I believe that rather than losing
+          something, these limitations give the system very particular and unique traits that I have come to appreciate.
+        </p>
+
+        <p>
+          Let me go into each trade-off one by one and explain how they, in my opinion, improve the user experience.
+        </p>
+
+        <h2>Content-Type: text/plain</h2>
+
+        <p>
+          Syrinx is text-only and posts limited to 140 characters. This is not because it's impossible to have P2P
+          multimedia, but because solving it for text was big enough of a problem to tackle in a PoC. On top of that my
+          phone for example reports that the app is provided with a quota of 10G of storage even if I don't have 10G
+          phisically available in my device. On the client we have to be very conservative when it comes to storage,
+          developers should consume it carefully and responsibly.
+        </p>
+
+        <p>
+          That said, this system is inspired by the golden days of Twitter, when 140 characters, far from limiting
+          expresssion, fostered creativity. I would call this decision "partly technical, but mostly intentional", since
+          I could have started with a much bigger limit with no noticeable impact on storage. Just to give you an idea,
+          90% of a post's size is consumed by its envelope, namely the cryptographic signatures.
+        </p>
+
+        <p>
+          Text-only means that no profile pictures are allowed either. I have discovered that this has some very
+          interesting security properties. Since the username is just free text you could try to impersonate a user by
+          using similar-looking characters or maybe even invisible characters. However, since you can't have an
+          arbitrary profile picture (your avatar will be auto-generated from the server-generated user ID, AKA an
+          identicon) you will get a distinct avatar, giving both accounts unique visual characteristics that prevent
+          impersonation.
+        </p>
+
+        <h2>Content Travels at Angular Speed</h2>
+
+        <p>
+          As we already established the server does not hold any content, therefore peers have to be online to deliver
+          it; if there's nobody online at the time you request the content, you can't access it. This is inspired by the
+          BBS of the early days of the Internet, in which a message could take days to reach the recipient because
+          servers would only sync once a day, at night.
+        </p>
+
+        <p>
+          In Syrinx this means that a user you follow who is located on your antipode (i.e. on the exact opposite side
+          of earth) may be sleeping when you try to access it. In order for you to get it they should deliver it to
+          someone that's closer to your timezone while they are awake, and then that user could act as your provider.
+        </p>
+
+        <p>
+          I really love this concept that delivery not only doesn't have to be immediate, but that content could
+          literally take hours or even days travelling across the earth before it can reach you.
+        </p>
+
+        <h2>The Walled Web</h2>
+
+        <p>
+          I said earlier that we have all the tools to reclaim the Internet. And I do believe that. However, the
+          entrypoints are very well policed.
+        </p>
+
+        <p>
+          There are just a handful of browsers available and all of them, directly or indirectly, controlled by
+          corporations. The view is even more dire in the mobile world, where the whole ecosystem is built and
+          maintained by corporations. They decide who gets to play in a game where they not only set the rules, but also
+          change them whenever they feel like.
+        </p>
+
+        <p>
+          Progressive Web Apps are a tiny crack in that wall, but with many limitations (with respect to native apps)
+          many of them undocumented or disguised as bugs. It's not uncommon to hit features that are supposed to work
+          according to the docs, but haven't for years. And the incentives for fixing them are not really there either.
+        </p>
+
+        <p>
+          Still, we can work with what we have. For now I've decided to leave certain features out, such as
+          notifications. I want the user to come to the app when they decide, not the app to scream for attention. I do
+          see the value in getting notified of important events, but what "important" means should be defined by the
+          user.
+        </p>
+
+        <h2>Data Migration</h2>
+
+        <p>
+          This is the one problem I have not been able to solve yet. In a centralized environment you would have a
+          domain acting as the server's identity. If I query that domain I can be reasonably certain that I'm reaching
+          the actual service.
+        </p>
+
+        <p>
+          In a decentralized world there's no single authority to tell me who is who, I depend on someone (that I trust)
+          giving me the public key of the server over a secure channel to be able to verify their identity. Now imagine
+          that I want to migrate my user from one community to another.
+        </p>
+
+        <p>
+          If these 2 communities are federated (meaning that they have already verified each other's identities) the new
+          home could validate that the data was signed by the old server and accept it. But what if they don't know
+          about each other? How can I be sure that the user didn't craft a set of signatures themselves, pretending to
+          be server signatures?
+        </p>
+
+        <p>
+          And what if the original community is permanently down? A user who doesn't want to lose their posts decides to
+          migrate their identity to a new server. Now even if the user brings the old server's public key along there's
+          no server to ask whether they even know about this user. If this user claims they they wrote a post in 2019
+          about a new pandemic coming up, shall we trust them? If you do, you (the server) are vouching for the post's
+          validity.
+        </p>
+
+        <p>
+          It's all complicated enough already that we are moving just public posts between servers, now add private
+          chats too in the mix. It's a mess. This is, in my opinion, the Achilles' heel of this solution, and one that I
+          still have no satisfactory answer for. To be fair, no centralized, proprietary service allows you to migrate
+          your data and nobody seems to have a problem with that (you can export it at best, but nobody will let you
+          import it.)
+        </p>
+
+        <h2>So What's Next?</h2>
+
+        <p>
+          I don't know. I proved what I set out to prove: Whether it was possible to have a federated social network
+          that could withstand censorship while providing a basic set of tools for moderation. And I'm very satisfied
+          with the result. What happens next is up to the community.
+        </p>
+
+        <p>Let me know if you find it useful, I would appreciate any kind of feedback.</p>
+
+        <p>Thanks for reading.</p>
+      </article>
+    </main>
+
+    <footer class="site">
+      <a href="/">← back</a>
+    </footer>
+  </body>
+</html>
